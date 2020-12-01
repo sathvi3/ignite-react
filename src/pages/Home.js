@@ -8,6 +8,7 @@ import GameDetail from "../components/GameDetail";
 //Styling and Animation
 import styled from "styled-components";
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
+import { fadeIn, popup } from "../animations";
 import { useLocation } from "react-router-dom";
 
 const Home = () => {
@@ -24,7 +25,7 @@ const Home = () => {
     (state) => state.games
   );
   return (
-    <GameList>
+    <GameList variants={fadeIn} initial="hidden" animate="show">
       <AnimateSharedLayout>
         <AnimatePresence>
           {pathId && <GameDetail pathId={pathId} />}
